@@ -17,18 +17,13 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 'd' || format [i + 1] == 'i')
 				return_pourc = handle_di(format[i + 1], args);
 			else
-				
-
-			if (return_pourc == 'f')
 			{
 				write(1, &format[i], 1);
 				total ++;
+				continue;
 			}
-			else
-			{
 				total += return_pourc;
 				i++;
-			}
 		}
 		else
 		{
