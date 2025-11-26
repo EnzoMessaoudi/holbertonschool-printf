@@ -1,8 +1,7 @@
-#include "handle_pourc.c"
 #include "main.h"
 #include <unistd.h>
 
-int_printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	int i, return_pourc, total = 0;
 	va_list args; 
@@ -10,13 +9,13 @@ int_printf(const char *format, ...)
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] == % && args)
+		if (format[i] == '%')
 		{
-			return_pourc = handle_pourc(format[i] + 1, args);
+			return_pourc = handle_pourc(format[i + 1], args);
 
-			if (return_pourc == "false")
+			if (return_pourc == 0)
 			{
-				write(format[i]);
+				write(1, &format[i], 1);
 				total ++;
 			}
 			else
@@ -27,11 +26,10 @@ int_printf(const char *format, ...)
 		}
 		else
 		{
-			write(format[i])
+			write(1, &format[i], 1);
 			total ++;
 		}
 	}
-	printf("\n");
 	va_end(args);
 	return(total);
 }
