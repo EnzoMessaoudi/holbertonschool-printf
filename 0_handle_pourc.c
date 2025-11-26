@@ -8,28 +8,34 @@
 * Return: Return false if not the good value and the number of characters if good
 */
 
-int handle_pourc(char *array, va_list args)
+int handle_pourc(char array, va_list args)
 {
 	int nb = 0;
 
-	if (array == 'c' || array == 's')
+	if (array == 'c')
 	{
-		char *str = va_arg(args, *str);
-
-		while (str)
+		char c = va_arg(args, int);
+		write(1, &c, 1);
+		nb++;
+	}
+	else if (array == 's')
+	{
+		char *str = va_arg(args, char *);
+		while (*str)
 		{
 			write(1, str, 1);
 			nb++;
 			str++;
 		}
-		return (nb);
 	}
 	else if (array == '%')
 	{
-		write(1, '%', 1);
+		write(1, "%", 1);
 		nb++;
 		return (nb);
 	}
 	else
-		return (false);
+		return (0);
+
+	return (nb);
 }
