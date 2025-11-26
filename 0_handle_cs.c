@@ -38,7 +38,7 @@ int handle_cs(char array, va_list args)
 		nb++;
 	}
 	else
-		return (0);
+		return ('f');
 
 	return (nb);
 }

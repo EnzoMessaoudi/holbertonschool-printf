@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 			else
 				return_pourc = handle_cs(format[i + 1], args);
 
-			if (return_pourc == 0)
+			if (return_pourc == 'f')
 			{
 				write(1, &format[i], 1);
 				total ++;
