@@ -23,6 +23,8 @@ int handle_cs(char array, va_list args)
 	{
 		char *str = va_arg(args, char *);
 
+		if (!str)
+			str = "(null)";
 		while (*str)
 		{
 			write(1, str, 1);
