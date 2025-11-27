@@ -3,23 +3,25 @@
 
 /**
 * handle_di - Function that write float and integrer
-* @array: Value passes by the user
-* @va_list: What the user want instead of the value
+* @args: What the user want instead of the value
 * Return: Return 0 if failed or number of characters writed
 */
 
 int handle_di(va_list args)
 {
-	int nb_total = 0, value = va_arg(args, int), is_negative, j, i = 0;
+	int nb_total = 0, value = va_arg(args, int), is_negative = 0, j, i = 0;
 	char buffer[12];
 
 	if (value == 0)
-		return (0);
+	{
+		write(1, "0", 1);
+		return (1);
+	}
 
 	if (value < 0)
 	{
 		is_negative = 1;
-		value = - value;
+		value = -value;
 	}
 	while (value > 0)
 	{
@@ -29,6 +31,8 @@ int handle_di(va_list args)
 
 	if (is_negative == 1)
 		buffer[i++] = '-';
+	else
+		i--;
 
 	for (j = i; j >= 0; j--)
 	{
