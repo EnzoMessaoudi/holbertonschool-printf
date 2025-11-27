@@ -8,12 +8,10 @@
 * Return: Return 0 if failed or number of characters writed
 */
 
-int handle_di(char array, va_list args)
+int handle_di(va_list args)
 {
-	int nb = 0;
-	int value = va_arg(args, int);
+	int nb_total = 0, value = va_arg(args, int), is_negative, j, i = 0;
 	char buffer[12];
-	int is_negative, j = 0, i = 0;
 
 	if (value == 0)
 		return (0);
@@ -35,8 +33,8 @@ int handle_di(char array, va_list args)
 	for (j = i; j >= 0; j--)
 	{
 		write(1, &buffer[j], 1);
-		nb++;
+		nb_total++;
 	}
 
-	return (nb);
+	return (nb_total);
 }
