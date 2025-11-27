@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == 'c' || format [i + 1] == 's' || format[i + 1] == '%')
 				return_pourc = handle_cs(format[i + 1], args);
 			else if (format[i + 1] == 'd' || format [i + 1] == 'i')
-				return_pourc = handle_di(format[i + 1], args);
+				return_pourc = handle_di(args);
 			else
 			{
 				write(1, &format[i], 1);
