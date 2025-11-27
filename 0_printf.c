@@ -1,36 +1,49 @@
 #include "main.h"
 #include <unistd.h>
 
+/**
+* _printf - Show in the output what the user passed int parameter
+* @format: What the user want to print
+* Return: Return the number of characters showed
+*/
+
 int _printf(const char *format, ...)
 {
-	int i, return_pourc, total = 0;
-	va_list args; 
-	va_start (args, format);
+	int i, retur_pourc, total = 0;
+	va_list args;
+
+	va_start(args, format);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '\0')
+			{
+				va_end(args);
+				return (-1);
+			}
 
-			if (format[i + 1] == 'c' || format [i + 1] == 's' || format[i + 1] == '%')
-				return_pourc = handle_cs(format[i + 1], args);
-			else if (format[i + 1] == 'd' || format [i + 1] == 'i')
-				return_pourc = handle_di(args);
+			if (format[i + 1] == 'c' || format[i + 1] == 's'
+			|| format[i + 1] == '%')
+				retur_pourc = handle_cs(format[i + 1], args);
+			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
+				retur_pourc = handle_di(args);
 			else
 			{
 				write(1, &format[i], 1);
-				total ++;
+				total++;
 				continue;
 			}
-				total += return_pourc;
+				total += retur_pourc;
 				i++;
 		}
 		else
 		{
 			write(1, &format[i], 1);
-			total ++;
+			total++;
 		}
 	}
 	va_end(args);
-	return(total);
+	return (total);
 }
