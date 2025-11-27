@@ -31,10 +31,8 @@ int handle_di(va_list args)
 
 	if (is_negative == 1)
 		buffer[i++] = '-';
-	else
-		i--;
 
-	for (j = i; j >= 0; j--)
+	for (j = i - 1; j >= 0; j--)
 	{
 		write(1, &buffer[j], 1);
 		nb_total++;
