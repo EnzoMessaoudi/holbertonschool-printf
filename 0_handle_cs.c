@@ -10,35 +10,34 @@
 
 int handle_cs(char array, va_list args)
 {
-	int nb = 0;
+	int nb_total = 0;
 
 	if (array == 'c')
 	{
 		char c = va_arg(args, int);
 
 		write(1, &c, 1);
-		nb++;
+		nb_total++;
 	}
 	else if (array == 's')
 	{
-		char *str = va_arg(args, char *);
+		char *s = va_arg(args, char *);
 
-		if (!str)
-			str = "(null)";
-		while (*str)
+		if (!s)
+			s = "(null)";
+		while (*s)
 		{
-			write(1, str, 1);
-			nb++;
-			str++;
+			write(1, s, 1);
+			nb_total++;
+			s++;
 		}
 	}
 	else if (array == '%')
 	{
 		write(1, "%", 1);
-		nb++;
+		nb_total++;
 	}
-	else 
-		return ('f');
 
-	return (nb);
+	return (nb_total);
+
 }
