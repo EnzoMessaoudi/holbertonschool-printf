@@ -9,8 +9,8 @@
 
 int handle_di(va_list args)
 {
-	int nb_total = 0, value = va_arg(args, int), is_negative = 0, j, i = 0;
-	char buffer[12];
+	int nb_total = 0, value = va_arg(args, unsigned int), is_negative = 0, j, i = 0;
+	char buffer[20];
 
 	if (value == 0)
 	{
