@@ -1,0 +1,38 @@
+.TH man_3_printf 1 "2025-11-28"
+.SH NAME
+_printf \- Print in the stdout what the user passes in parameter
+.SH SYNOPSIS
+.B _printf 
+FORMAT [ARGUMENT] ...
+.TP
+Use the header file main.h to use the function _printf
+.SH DESCRIPTION
+.B _pritnf
+This function print anything that the user passes in format. If the user want to print variable or constente, he has to say the type he wants with a '%' followed by the first letter. See below what letter and type the user can use:
+.TP
+.BR %c
+Print a character
+.TP
+.BR %s
+Print a string
+.TP
+.BR %%
+Print a '%'
+.TP
+.BR %d
+Print a decimal
+.TP
+.BR %i
+Print a integrer
+.TP
+If the user write another letter than expected, it will just print the percent with the letter.
+.TP
+The _printf function return the number of character that it printed.
+.SH EXEMPLES OF USE
+_printf("Hello World !"); -> Hello world !
+.TP
+_printf("%i", 12321); -> 12321
+.TP
+.SH AUTHORS
+Enzo Messaoudi and Killian Le Boulzec
+
