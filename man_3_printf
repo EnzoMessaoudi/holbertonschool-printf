@@ -5,7 +5,7 @@ _printf \- Print in the stdout what the user passes in parameter
 .B _printf 
 FORMAT [ARGUMENT] ...
 .TP
-Use the header file main.h to use the function _printf
+Use the header file "main.h" to use the function _printf
 .SH DESCRIPTION
 .B _pritnf
 This function print anything that the user passes in format. If the user want to print variable or constente, he has to say the type he wants with a '%' followed by the first letter. See below what letter and type the user can use:
@@ -19,11 +19,9 @@ Print a string
 .BR %%
 Print a '%'
 .TP
-.BR %d
-Print a decimal
-.TP
-.BR %i
+.BR %d/%i
 Print a integrer
+.TP
 .TP
 If the user write another letter than expected, it will just print the percent with the letter.
 .TP
