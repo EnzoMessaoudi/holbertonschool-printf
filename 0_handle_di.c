@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <string.h>
 
 /**
 * handle_di - Function that write float and integrer
@@ -14,7 +15,7 @@ int handle_di(va_list args)
 	long value = tmp;
 	int is_negative = 0;
 	int j, i = 0;
-	char buffer[20];
+	char buffer[12];
 
 	if (value == 0)
 	{
